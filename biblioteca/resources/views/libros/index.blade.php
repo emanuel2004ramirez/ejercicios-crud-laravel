@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('contenido')
+<a href="{{ route('libros.create') }}">Crear libro</a>
 
 <h1>Libros regiistrados</h1>
 <table>

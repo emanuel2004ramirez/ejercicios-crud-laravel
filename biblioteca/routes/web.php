@@ -26,6 +26,14 @@ Route::middleware('auth')->group(function (){
     Route::get('index', [LibroController::class, 'index'])
         ->name('libros.index');
 
+        //Ruta para crear
+    Route::get('/libros/crear', [LibroController::class, 'create'])
+    ->name('libros.create');
+    // Crear una ruta post que guarde un libro
+    Route::post('/libros', [LibroController::class, 'store'])
+    ->name('libros.store');
+    
+
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
 });

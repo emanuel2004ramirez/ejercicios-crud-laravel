@@ -10,7 +10,7 @@ class LoginController extends Controller
     //Metodo para mostrar el login
     public function create(){
         if(Auth::check()){
-            return redirect()->route('inicio');
+            return redirect()->route('libros.index');
         }
         return view('auth.login');
     }
@@ -26,7 +26,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
         
 
-        return redirect()->intended(route('inicio'));
+        return redirect()->intended(route('libros.index'));
         }
         
     

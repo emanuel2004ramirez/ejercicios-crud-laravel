@@ -32,6 +32,11 @@ Route::middleware('auth')->group(function (){
     // Crear una ruta post que guarde un libro
     Route::post('/libros', [LibroController::class, 'store'])
     ->name('libros.store');
+    //Actualizar libro
+    Route::get('/libros/{id}/editar', [LibroController::class, 'edit'])
+    ->name('libros.edit');
+    Route::put('/libros/{id}', [LibroController::class, 'update'])
+    ->name('libros.update');
     
 
     Route::post('/logout', [LoginController::class, 'destroy'])

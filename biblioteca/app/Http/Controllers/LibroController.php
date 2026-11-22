@@ -39,7 +39,27 @@ class LibroController extends Controller
     }
 
     //Actualizar 1
+    public function edit($id){
+        $libro = Libro::findOrFail($id);
+        return view('libros.edit', ['libro' => $libro]);
+    }
     //Actualizar 2
+    public function update(Request $request, $id){
+        $datos = request()->validate([
+            'codigo' => 'required',
+            'titulo' => 'required',
+            'autor' => 'required',
+            'anio_publicacion' => 'required|integer',
+        ]);
+        $libro = Libro::findOrFail($id);
+        $libro->codigo = $datos['codigo'];
+        $libro->titulo = $datos['titulo'];
+        $libro->autor = $datos['autor'];
+        $libro->anio_publicacion = $datos['anio_publicacion'];
+        $libro->save();
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro actualizado correctamente');
+    }
 
     //Eliminar 1
     //Eliminar 2

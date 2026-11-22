@@ -26,7 +26,14 @@
             <td>
                 <a href="{{ route('libros.edit', $libro->id) }}">Editar</a>
                 
-                
+                <form method="POST" action="{{ route('libros.destroy', $libro->id) }}" style="display:inline"
+                onsubmit="return confirm('¿Estás seguro de que deseas eliminar este libro?');">
+                    o
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                    
+                </form>
             </td>
         </tr>
         @empty

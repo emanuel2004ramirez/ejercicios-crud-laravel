@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function (){
     ->name('libros.edit');
     Route::put('/libros/{id}', [LibroController::class, 'update'])
     ->name('libros.update');
+    Route::delete('/libros/{id}', [LibroController::class, 'destroy'])
+    ->name('libros.destroy');
     
 
     Route::post('/logout', [LoginController::class, 'destroy'])

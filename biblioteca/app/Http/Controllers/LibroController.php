@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use Illuminate\Validation\Rule;
 
 class LibroController extends Controller
 {
@@ -22,11 +23,12 @@ class LibroController extends Controller
     //Guardar 2
     public function store(){
         $datos = request()->validate([
-            'codigo' => 'required',
-            'titulo' => 'required',
-            'autor' => 'required',
-            'anio_publicacion' => 'required|integer',
-        ]);
+        'codigo' => 'required|string|unique:libros,codigo',
+        'titulo' => 'required|string|max:150',
+        'autor' => 'required|string|max:100',
+        'anio_publicacion' => 'required|integer|between:1450,' . date('Y'),
+]);
+
         $libro = new Libro();
         $libro->codigo = $datos['codigo'];
         $libro->titulo = $datos['titulo'];
@@ -46,11 +48,17 @@ class LibroController extends Controller
     //Actualizar 2
     public function update(Request $request, $id){
         $datos = request()->validate([
-            'codigo' => 'required',
-            'titulo' => 'required',
-            'autor' => 'required',
-            'anio_publicacion' => 'required|integer',
-        ]);
+        'codigo' => [
+            'required',
+            'string',
+            Rule::unique('libros', 'codigo')->ignore($id),
+        ],
+        'titulo' => 'required|string|max:150',
+        'autor' => 'required|string|max:100',
+        'anio_publicacion' => 'required|integer|between:1450,' . date('Y'),
+    ]);
+
+
         $libro = Libro::findOrFail($id);
         $libro->codigo = $datos['codigo'];
         $libro->titulo = $datos['titulo'];
@@ -62,5 +70,12 @@ class LibroController extends Controller
     }
 
     //Eliminar 1
+    public function destroy($id){
+        $libro = Libro::findOrFail($id);
+        $libro->delete();
+        return redirect()->route('libros.index')
+            ->with('success', 'Libro eliminado correctamente');
+    }
     //Eliminar 2
+    
 }

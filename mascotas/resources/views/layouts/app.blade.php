@@ -103,6 +103,7 @@
         .formulario-card select { width: 100%; padding: 13px 14px; border: 1px solid #bdd4d0; border-radius: 11px; outline: none; font: inherit; color: #173b3f; background: #fbfefd; }
         .formulario-card select:focus { border-color: #2b8a78; box-shadow: 0 0 0 3px #d8f1ea; }
         .regresar { display: inline-block; margin-top: 18px; color: #217364; font-weight: bold; text-decoration: none; }
+        .accion-editar { color: #217364; font-weight: bold; text-decoration: none; }
         @media (max-width: 480px) {
             .login-card { padding: 28px 22px; border-radius: 18px; }
             h1 { font-size: 26px; }

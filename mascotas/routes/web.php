@@ -18,6 +18,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('mascota.create');
     Route::post('/mascotas', [MascotaController::class, 'store'])
         ->name('mascota.store');
+    Route::get('/mascotas/{mascota}/edit', [MascotaController::class, 'edit'])
+        ->name('mascota.edit');
+    Route::put('/mascotas/{mascota}', [MascotaController::class, 'update'])
+        ->name('mascota.update');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

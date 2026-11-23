@@ -24,6 +24,7 @@
                         <th>Especie</th>
                         <th>Propietario</th>
                         <th>Fecha de nacimiento</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,9 @@
                             <td class="especie">{{ $mascota->especie }}</td>
                             <td>{{ $mascota->propietario }}</td>
                             <td>{{ $mascota->fecha_nacimiento->format('d/m/Y') }}</td>
+                            <td>
+                                <a class="accion-editar" href="{{ route('mascota.edit', $mascota) }}">Editar</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

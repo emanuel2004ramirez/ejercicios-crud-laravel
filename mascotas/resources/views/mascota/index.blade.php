@@ -4,8 +4,15 @@
     <main class="contenedor">
         <div class="barra">
             <h1>Registro de mascotas</h1>
-            <a class="salir" href="{{ route('logout') }}">Cerrar sesión</a>
+            <div class="acciones-superiores">
+                <a class="boton-enlace" href="{{ route('mascota.create') }}">Agregar mascota</a>
+                <a class="salir" href="{{ route('logout') }}">Cerrar sesión</a>
+            </div>
         </div>
+
+        @if (session('success'))
+            <div class="mensaje">{{ session('success') }}</div>
+        @endif
 
         <div class="tabla-contenedor">
             <table>

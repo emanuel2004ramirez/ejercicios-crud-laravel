@@ -21,5 +21,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/producto', [ProductoController::class, 'store'])
         ->name('producto.store');
 
+    Route::get('/producto/{producto}/edit', [ProductoController::class, 'edit'])
+        ->name('producto.edit');
+    Route::put('/producto/{producto}', [ProductoController::class, 'update'])
+        ->name('producto.update');
+
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

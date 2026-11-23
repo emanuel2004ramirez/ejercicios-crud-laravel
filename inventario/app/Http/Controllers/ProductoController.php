@@ -57,6 +57,7 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
+        return view('producto.edit', compact('producto'));
     }
 
     /**
@@ -65,6 +66,12 @@ class ProductoController extends Controller
     public function update(Request $request, Producto $producto)
     {
         //
+        $producto->codigo = $request->input('codigo');
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        $producto->existencia = $request->input('existencia');
+        $producto->save();
+        return redirect()->route('producto.index')->with('success', 'Producto actualizado correctamente');
     }
 
     /**

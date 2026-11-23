@@ -39,7 +39,7 @@ class TareaController extends Controller
             'fecha_limite' => 'required|date',
         ]);
 
-        
+
         tarea::create($request->all()); 
         return redirect()->route('tarea.index')->with('success', 'Tarea creada correctamente'); 
         
@@ -57,9 +57,11 @@ class TareaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(tarea $tarea)
+    public function edit(int $id)
     {
         //
+        $tarea = tarea::findOrFail($id);
+        return view('tarea.edit', ['tarea' => $tarea]);
     }
 
     /**
@@ -68,6 +70,15 @@ class TareaController extends Controller
     public function update(Request $request, tarea $tarea)
     {
         //
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'responsable' => 'required|string|max:255',
+            'estado' => 'required|string|in:pendiente,en progreso,completada',
+            'fecha_limite' => 'required|date',
+        ]);     
+        $tarea->update($request->all());
+        return redirect()->route('tarea.index')->with('success', 'Tarea actualizada correctamente');    
     }
 
     /**

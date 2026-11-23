@@ -11,9 +11,9 @@
         <option value="en progreso">En Progreso</option>
         <option value="completada">Completada</option>
     </select>   
-    
+
     <input type="date" name="fecha_limite" placeholder="Fecha límite">
     <button type="submit">Crear Tarea</button>
-</
+</form>
 
 @endsection

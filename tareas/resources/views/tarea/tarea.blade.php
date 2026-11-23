@@ -1,4 +1,9 @@
 <h1>Registro de Tareas</h1>
+@if ( session('success') )
+    <p>{{ session('success') }}</p>  
+
+    
+@endif
 <a href="{{ route('tarea.create') }}">Crear Nueva Tarea</a>
 <table border="1">
     <thead>
@@ -9,6 +14,7 @@
             <th>Responsable</th>
             <th>Estado</th>
             <th>Fecha Límite</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +26,8 @@
                 <td>{{ $tarea->responsable }}</td>
                 <td>{{ $tarea->estado }}</td>
                 <td>{{ $tarea->fecha_limite }}</td>
-            </tr>
+                <td>
+                    <a href="{{ route('tarea.edit', $tarea->id) }}">Editar</a>
+                    
         @endforeach
     </tbody>

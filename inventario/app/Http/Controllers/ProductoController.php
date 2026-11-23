@@ -25,6 +25,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
+        return view('producto.create');
     }
 
     /**
@@ -33,6 +34,13 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $producto = new Producto();
+        $producto->codigo = $request->input('codigo');
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        $producto->existencia = $request->input('existencia');
+        $producto->save();
+        return redirect()->route('producto.index')->with('success', 'Producto creado correctamente');
     }
 
     /**

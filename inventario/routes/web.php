@@ -16,7 +16,10 @@ Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::middleware(['auth'])->group(function () {
     Route::get('/producto',   [ProductoController::class, 'index'] )
         ->name('producto.index');
-   
+    Route::get('/producto/create', [ProductoController::class, 'create'])
+        ->name('producto.create');
+    Route::post('/producto', [ProductoController::class, 'store'])
+        ->name('producto.store');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

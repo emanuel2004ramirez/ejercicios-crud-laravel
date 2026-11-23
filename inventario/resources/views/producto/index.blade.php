@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('contenido')  
 @csrf
- 
+ <a href="{{ route('producto.create') }}">Agregar Producto</a>
 <h1>Registro de Productos</h1>
 <table>
     <thead>

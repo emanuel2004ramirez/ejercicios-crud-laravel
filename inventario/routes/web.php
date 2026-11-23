@@ -25,6 +25,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('producto.edit');
     Route::put('/producto/{producto}', [ProductoController::class, 'update'])
         ->name('producto.update');
+    Route::delete('/producto/{producto}', [ProductoController::class, 'destroy'])
+        ->name('producto.destroy');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('contenido')  
 @csrf
+
+@if (session('success'))    
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
  <a href="{{ route('producto.create') }}">Agregar Producto</a>
 <h1>Registro de Productos</h1>
 <table border="1">
@@ -22,6 +28,11 @@
                 <td>{{ $producto->existencia == 0 ? 'Agotado' : $producto->existencia }}</td>
                 <td>
                     <a href="{{ route('producto.edit', $producto->id) }}">Editar</a>
+                    <form action="{{ route('producto.destroy', $producto->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>    
+                    </form>
                     
                     
             </tr>

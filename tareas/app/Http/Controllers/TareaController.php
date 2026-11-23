@@ -22,6 +22,7 @@ class TareaController extends Controller
     public function create()
     {
         //
+        return view('tarea.create');
     }
 
     /**
@@ -29,7 +30,20 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //insertar datos en la base de datos
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'responsable' => 'required|string|max:255',
+            'estado' => 'required|string|in:pendiente,en progreso,completada',
+            'fecha_limite' => 'required|date',
+        ]);
+
+        
+        tarea::create($request->all()); 
+        return redirect()->route('tarea.index')->with('success', 'Tarea creada correctamente'); 
+        
+
     }
 
     /**

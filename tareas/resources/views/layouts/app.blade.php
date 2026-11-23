@@ -1,5 +1,3 @@
    
 @yield('contenido')   
 
-
-

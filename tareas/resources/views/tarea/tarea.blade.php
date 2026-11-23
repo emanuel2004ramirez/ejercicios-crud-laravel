@@ -1,4 +1,5 @@
 <h1>Registro de Tareas</h1>
+<a href="{{ route('tarea.create') }}">Crear Nueva Tarea</a>
 <table border="1">
     <thead>
         <tr>

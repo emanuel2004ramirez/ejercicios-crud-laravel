@@ -17,6 +17,10 @@ Route::middleware(['auth'])->group(function () {
     // Rutas protegidas aquí
     Route::get('/tarea', [TareaController::class, 'index' ]
     )->name('tarea.index');
+    Route::get('/tarea/create', [TareaController::class, 'create']
+    )->name('tarea.create');
+    Route::post('/tarea', [TareaController::class, 'store']
+    )->name('tarea.store');
 
     
     Route::post('/logout', [LoginController::class, 'destroy']);

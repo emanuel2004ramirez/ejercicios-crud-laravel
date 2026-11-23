@@ -84,4 +84,12 @@ class MascotaController extends Controller
         return redirect()->route('mascota.index')
             ->with('success', 'Mascota actualizada correctamente.');
     }
+
+    public function destroy(Mascota $mascota)
+    {
+        $mascota->delete();
+
+        return redirect()->route('mascota.index')
+            ->with('success', 'Mascota eliminada correctamente.');
+    }
 }

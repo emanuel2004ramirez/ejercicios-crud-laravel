@@ -104,6 +104,9 @@
         .formulario-card select:focus { border-color: #2b8a78; box-shadow: 0 0 0 3px #d8f1ea; }
         .regresar { display: inline-block; margin-top: 18px; color: #217364; font-weight: bold; text-decoration: none; }
         .accion-editar { color: #217364; font-weight: bold; text-decoration: none; }
+        .form-eliminar { display: inline-block; margin-left: 9px; }
+        .form-eliminar button { width: auto; margin: 0; padding: 7px 11px; border-radius: 8px; background: #b54444; font-size: 13px; }
+        .form-eliminar button:hover { background: #913535; }
         @media (max-width: 480px) {
             .login-card { padding: 28px 22px; border-radius: 18px; }
             h1 { font-size: 26px; }

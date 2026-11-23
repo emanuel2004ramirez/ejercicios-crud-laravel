@@ -28,6 +28,12 @@
                 <td>{{ $tarea->fecha_limite }}</td>
                 <td>
                     <a href="{{ route('tarea.edit', $tarea->id) }}">Editar</a>
-                    
+                    <form method="post" action="{{ route('tarea.destroy', $tarea->id) }}" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
         @endforeach
     </tbody>

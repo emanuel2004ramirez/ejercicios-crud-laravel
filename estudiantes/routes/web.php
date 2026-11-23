@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('estudiante.edit');
     Route::put('/estudiantes/{estudiante}', [EstudianteController::class, 'update'])
         ->name('estudiante.update');
+    Route::delete('/estudiantes/{estudiante}', [EstudianteController::class, 'destroy'])
+        ->name('estudiante.destroy');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

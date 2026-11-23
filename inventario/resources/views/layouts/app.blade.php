@@ -4,5 +4,7 @@
     </head>
     <body>
         @yield('contenido')
+        
+        <a href="{{ route('logout') }}">Cerrar sesión</a>
     </body>         
 </html>

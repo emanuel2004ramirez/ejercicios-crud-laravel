@@ -3,6 +3,12 @@
 @section('contenido')
     <h1>Registro de estudiantes</h1>
 
+    @if (session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
+
+    <a href="{{ route('estudiante.create') }}">Agregar estudiante</a>
+
     <table border="1">
         <thead>
             <tr>

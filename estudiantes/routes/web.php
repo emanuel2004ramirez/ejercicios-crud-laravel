@@ -14,6 +14,10 @@ Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::middleware(['auth'])->group(function () {
     Route::get('/estudiantes', [EstudianteController::class, 'index'])
         ->name('estudiante.index');
+    Route::get('/estudiantes/create', [EstudianteController::class, 'create'])
+        ->name('estudiante.create');
+    Route::post('/estudiantes', [EstudianteController::class, 'store'])
+        ->name('estudiante.store');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

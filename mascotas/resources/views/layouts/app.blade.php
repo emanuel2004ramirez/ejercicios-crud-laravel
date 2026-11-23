@@ -83,6 +83,17 @@
             background: #fff0f0;
             font-size: 14px;
         }
+        .contenedor { width: min(1100px, calc(100% - 32px)); margin: 42px auto; }
+        .barra { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .barra h1 { margin: 0; }
+        .salir { color: #217364; font-weight: bold; text-decoration: none; }
+        .tabla-contenedor { overflow-x: auto; border: 1px solid #c8e0da; border-radius: 16px; background: white; box-shadow: 0 14px 35px rgba(23, 59, 63, .09); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 16px; border-bottom: 1px solid #e1eeeb; text-align: left; white-space: nowrap; }
+        th { color: #ffffff; background: #2b8a78; font-size: 14px; }
+        tbody tr:last-child td { border-bottom: 0; }
+        tbody tr:hover { background: #f3fbf8; }
+        .especie { text-transform: capitalize; }
         @media (max-width: 480px) {
             .login-card { padding: 28px 22px; border-radius: 18px; }
             h1 { font-size: 26px; }

@@ -18,6 +18,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('estudiante.create');
     Route::post('/estudiantes', [EstudianteController::class, 'store'])
         ->name('estudiante.store');
+    Route::get('/estudiantes/{estudiante}/edit', [EstudianteController::class, 'edit'])
+        ->name('estudiante.edit');
+    Route::put('/estudiantes/{estudiante}', [EstudianteController::class, 'update'])
+        ->name('estudiante.update');
 
     Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
